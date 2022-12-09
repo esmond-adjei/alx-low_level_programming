@@ -12,6 +12,8 @@ int main(void)
 	long th = 1;
 	long syscall = 1;
 	long re = 0;
+
 	asm ("syscall" : "=a" (re) : "a" (syscall), "D" (th), "S" (s), "d" (wh));
+
 	return (1);
 }
