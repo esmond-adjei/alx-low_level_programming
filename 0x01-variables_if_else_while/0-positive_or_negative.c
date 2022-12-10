@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <time.h>
 
- /* main - Entry point
+/**
+ * main - Entry point
  *
  * Description: prints out number if positive, negative or zero
  *
  * Return: 0
- *
- * */
+ */
 
 int main(void)
 {
