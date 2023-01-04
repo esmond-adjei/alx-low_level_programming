@@ -14,10 +14,7 @@ int i, foundChar;
 
 while (*s)
 {
-
-	
-	
-	for (i = 0; accept[i]; i++)
+for (i = 0; accept[i]; i++)
 {
 foundChar = 0;
 if (*s == accept[i])
