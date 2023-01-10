@@ -16,6 +16,5 @@ int countWords(char *s);
 int endIndex(char *s, int index);
 int startIndex(char *s, int index);
 char *argstostr(int ac, char **av);
-int wrdcnt(int ac, char **s);
-
+int wrdcnt(char *s);
 #endif /* HOLBERTON_H */
