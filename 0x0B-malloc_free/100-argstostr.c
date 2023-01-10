@@ -1,54 +1,53 @@
-#include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
- * wrdcnt - counts the number of words in a string
- * *argstostr - concantnates strings
- * @s: argument of wrdcnt
- * @ac: size of array
- * @av: char to fill array with
- * Return: string of chars
+ * _strlen - returns the length of a string
+ * @s: string s
+ * Return: length of string
  */
-int wrdcnt(int ac, char **s)
+int _strlen(char *s)
 {
-int j, i, n = 0;
-for (j = 0; j < ac; j++)
-{
-for (i = 0; i < ac; i++)
-{
-if (s[j][i] == ' ')
-{
-if (s[j][i + 1] != ' ' && s[j][i + 1] != '\0')
-n++;
-}
-else if (i == 0)
-n++;
-}
-n++;
-}
-return (n);
+	int len = 0;
+
+	while (*s++)
+		len++;
+
+	return (len);
 }
 
+/**
+ * argstostr - concatenates all the arguments of your program
+ * @ac: argument count
+ * @av: argument vector
+ * Return: concatenated string
+ */
 char *argstostr(int ac, char **av)
 {
+	int i, j, len, total;
+	int m = 0;
+	char *ptr;
 
-char *str;
-int i, n, j;
-n = wrdcnt(ac, av);
-
-if (ac == 0 || av == NULL)
-{
-return (NULL);
-}
-str = malloc(sizeof(char *) * n);
-for (i = 0; i < ac; i++)
-{
-j = 0;
-while (av[i][j])
-{
-*str += av[i][j];
-*str += '\n';
-}
-return (str);
-}
+	if (!ac || !av)
+		return (NULL);
+	total = 0;
+	for (i = 0; i < ac; i++)
+	{
+		len = _strlen(av[i]) + 1;
+		total += len;
+	}
+	ptr = malloc(sizeof(char) * total + 1);
+	if (!ptr)
+		return (NULL);
+	for (i = 0; i < ac; i++)
+	{
+		len = _strlen(av[i]);
+		for (j = 0; j < len; j++, m++)
+		{
+			ptr[m] = av[i][j];
+		}
+		ptr[m++] = '\n';
+	}
+	ptr[m] = '\0';
+	return (ptr);
 }
