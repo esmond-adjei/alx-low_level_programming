@@ -14,7 +14,7 @@ int wrdcnt(int ac, char **s)
 int j, i, n = 0;
 for (j = 0; j < ac; j++)
 {
-for (i = 0; s[j][i]; i++)
+for (i = 0; i < ac; i++)
 {
 if (s[j][i] == ' ')
 {
@@ -44,11 +44,9 @@ str = malloc(sizeof(char *) * n);
 for (i = 0; i < ac; i++)
 {
 j = 0;
-while(av[i][j])
+while (av[i][j])
 {
 *str += av[i][j];
-j++;
-}
 *str += '\n';
 }
 return (str);
